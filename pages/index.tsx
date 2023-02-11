@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from "classnames/bind";
 import styles from "@/styles/Home.module.scss";
 import IconHead1 from "@/components/icons/head1"
 import { useEffect, useState } from "react";
@@ -12,8 +12,8 @@ export default function Home() {
     window.scrollTo(0,1)
   },[])
   return (
-    <section className={styles['page-layout']}>
-      <div className={styles.showcase}>
+    <section className={cx('page-layout')}>
+      <div className={cx('showcase')}>
         <div className={styles.head}>
           {click && <IconHead1/>}
         </div>

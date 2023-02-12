@@ -5,7 +5,7 @@
     "background_color": "#123456",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/",
+    "start_url": "rush.909back.site",
     "icons": [
       {
         "src": "/icons/logo.png",

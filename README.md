@@ -1,2 +1,2 @@
-# rush
-RUSH 프로젝트
+# lush
+LUSH 프로젝트

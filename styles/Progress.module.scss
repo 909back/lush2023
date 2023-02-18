@@ -1,0 +1,34 @@
+@import './variables';
+
+
+.progress-bar-container {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    .progress-box {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 7px solid $purple20;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .progress-bar {
+        position: absolute;
+        top:0px;
+        left: 66px;
+        z-index: 2;
+        &.step1 { left: 66px }
+        &.step2 { left:7px;}
+    }
+    
+    .icon-nely {
+        position: absolute;
+        top:0;
+        left:0;
+        color:$purple20;
+        font-size: 140px;
+    }
+}

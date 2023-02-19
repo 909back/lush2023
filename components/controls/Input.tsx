@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from 'react'
+import React, { InputHTMLAttributes, useState } from 'react'
 import classNames from 'classnames/bind'
 import styles from '../../styles/Input.module.scss'
 import IconClose from '@/components/icons/ic-close'
@@ -6,21 +6,22 @@ import IconClose from '@/components/icons/ic-close'
 const cx = classNames.bind(styles)
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    children?: React.ReactNode
+    onClear?:() => void
 }
 
 const Input = ({
     className,
     type='text',
     value,
-    max = 6,
+    maxLength = 6,
+    onClear:handleClear=()=>{},
     ...props
 }: InputProps) => {
     return (
         <label className={cx('input-container', className)}>
-            <input className={cx('input')} value={value} type={type} {...props}/>
-            {value && <button className={cx('close-button')}><IconClose/></button>}
-            <span className={cx('input-counter')}>{`${value?.toString().length??0}/${max}`}</span>
+            <input className={cx('input')} value={value} type={type} maxLength={maxLength} {...props}/>
+            {value && <button className={cx('close-button')} onClick={handleClear}><IconClose/></button>}
+            <span className={cx('input-counter')}>{`${value?.toString().length??0}/${maxLength}`}</span>
         </label>
     )
 }

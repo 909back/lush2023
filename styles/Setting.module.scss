@@ -2,16 +2,25 @@
 
 .setting-page {
     height: 100%;
-    padding: 40px 0 0;
+    padding: 40px 0 75px;
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
-    gap:40px;
+    justify-content: space-between;
+    align-items: center; 
 
-    .page-desc {
-        color:$purple90;
-        font-size: 25px;
-        font-weight: 700;
-        line-height: 34px;
+    .setting-nickname-section {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        gap: 40px;
+
+        .page-desc {
+            color: $purple90;
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 34px;
+        }
+
     }
+
 }

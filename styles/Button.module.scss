@@ -1,0 +1,25 @@
+@import './variables.scss';
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border:0;
+    outline: none;
+
+    &.default {
+        width: 480px;
+        height: 60px;
+        padding: 14px 10px 13px;
+        color:$white;
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 30px;
+        border-radius: 10px;
+        background-color: $purple100;
+
+        &:disabled { 
+            background-color: $purple20;
+        }
+    }
+}

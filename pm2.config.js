@@ -1,7 +1,7 @@
 module.exports = {
     apps: [{
         name: 'lush',
-        script: 'npm start ./',
+        script: 'yarn start ./',
         watch: true,
         env: {
             "NODE_ENV": "production"

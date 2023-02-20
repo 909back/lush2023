@@ -21,10 +21,10 @@ const Setting = ({ }: Settingprops) => {
       <div className={cx('setting-page')}>
         <section className={cx('setting-nickname-section')}>
           <Progress />
-          <p className={cx('page-desc')}>크루원의 새로운 이름을 정해주세요.</p>
+          <p className={cx('page-desc')}>크루원의 새로운 이름을 정해주세요!</p>
           <Input placeholder="닉네임을 입력해주세요" value={nickname} onChange={handleChangeNickName} onClear={() => setNickname('')} />
         </section>
-        <Link href='/setting/character'>
+        <Link href={`/setting/character?name=${nickname}`}>
           <Button disabled={!nickname}>다음</Button>
         </Link>
       </div>

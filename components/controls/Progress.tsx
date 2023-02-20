@@ -8,7 +8,7 @@ const cx = classNames.bind(styles)
 interface ProgressProps {
     children?: React.ReactNode
     step?: number
-    className?: number
+    className?: string
 }
 
 const Progress = ({
@@ -16,8 +16,8 @@ const Progress = ({
     step=1,
 }: ProgressProps) => {
     return (
-        <div className={cx('progress-bar-container')}>
-            <div className={cx('progress-box', className)}/>
+        <div className={cx('progress-bar-container',className)}>
+            <div className={cx('progress-box')}/>
             <IconProgressNely className={cx('icon-nely')}/>
             <IconProgressBar className={cx('progress-bar', step===1 ? 'step1' : 'step2')} step={step}/>
         </div>

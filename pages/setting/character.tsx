@@ -62,7 +62,7 @@ const Character = ({ }: Characterprops) => {
     <PageLayout>
       <section className={cx('setting-character')}>
         <section className={cx('select-character-section')}>
-          <Progress step={2} />
+          <Progress className={cx('select-character-progress')} step={2} />
           <p className={cx('page-desc')}>변장시킬 크루원을 선택해주세요!</p>
           <CharacterSlider data={characterList} selected={character} onSelect={setCharacter} />
         </section>

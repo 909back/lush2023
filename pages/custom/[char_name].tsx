@@ -32,7 +32,7 @@ const Custom = ({}:Customprops) => {
     }
 
   return (
-    <PageLayout title='캐릭터 커스텀하기'>
+    <PageLayout>
         <div style={{color:color}} className={cx('show-case')}>
         <div className={cx('character')}>
         <div className={cx('head')}>{

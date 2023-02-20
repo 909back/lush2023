@@ -12,7 +12,7 @@ export default function Home() {
     window.scrollTo(0,1)
   },[])
   return (
-    <PageLayout title='캐릭터 커스텀'>
+    <PageLayout>
       
     </PageLayout>
   );

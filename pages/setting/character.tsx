@@ -37,14 +37,14 @@ const CharacterSlider = ({ data, selected, onSelect: handleSelect = () => { } }:
     <div className={cx('slider')}>
       <div className={cx('slider-container')}>
         <div className={cx('slider-wrapper')}>
-          {data.map((item, index) => <div className={cx('slider-item')}>
+          {data.map((item, index) => <div key={item.name} className={cx('slider-item')}>
             <Image src={item.src} alt={item.name} />
           </div>)}
         </div>
       </div>
     </div>
     <div className={cx('slider-index-container')}>
-      {data.map(item => <div className={cx('slide-index', { active: item.value === selected })} />)}
+      {data.map(item => <div key={item.name} className={cx('slide-index', { active: item.value === selected })} />)}
     </div>
   </div>
 }

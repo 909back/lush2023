@@ -30,14 +30,10 @@
     width: 350px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: relative;
+
 
     .slider {
-        width: calc((100vw / 2) + 175px);
-        position: absolute;
-        top: 0px;
-        left: 0;
+        width: calc(50vw + 175px);
 
         .slider-container {
             width: 100%;
@@ -70,8 +66,6 @@
         align-items: center;
         justify-content: center;
         gap: 8px;
-        position: absolute;
-        top: 520px;
 
         .slide-index {
             $size: 12px;

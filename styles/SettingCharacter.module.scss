@@ -37,9 +37,6 @@
 
         .slider-container {
             width: 100%;
-            overflow: scroll;
-            scroll-snap-type: x mandatory;  
-
             &::-webkit-scrollbar { display: none;}
 
             .slider-wrapper {
@@ -48,12 +45,12 @@
                 align-items: center;
                 gap: 100px;
                 padding-right: 75px;
+                transition: transform 0.4s ease;
 
                 .slider-item {
                     width: 350px;
                     height: 520px;
-                    scroll-snap-align: center;
-                    scroll-margin: 100px;
+                    scroll-snap-align: start;
                 }
             }
         }

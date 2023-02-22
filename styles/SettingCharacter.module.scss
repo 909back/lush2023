@@ -31,7 +31,6 @@
     display: flex;
     flex-direction: column;
 
-
     .slider {
         width: calc(50vw + 175px);
 
@@ -45,7 +44,6 @@
                 align-items: center;
                 gap: 100px;
                 padding-right: 75px;
-                transition: transform 0.4s ease;
 
                 .slider-item {
                     width: 350px;

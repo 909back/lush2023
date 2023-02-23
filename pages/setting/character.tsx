@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useRef, useState } from "react"
+import React, { CSSProperties, MemoExoticComponent, useEffect, useRef, useState } from "react"
 import { useRouter } from "next/router"
 import styles from "../../styles/SettingCharacter.module.scss"
 import classNames from "classnames/bind"
@@ -6,10 +6,10 @@ import Image from "next/image"
 import PageLayout from "@/components/layout/PageLayout"
 import Progress from "@/components/controls/Progress"
 import Button from "@/components/controls/Button"
-import Hippy from "@/components/icons/character/hippy.png"
-import Luky from "@/components/icons/character/luky.png"
-import Star from "@/components/icons/character/star.png"
-import Nely from "@/components/icons/character/nely.png"
+import Hippy from "@/components/icons/character/hippy"
+import Luky from "@/components/icons/character/luky"
+import Star from "@/components/icons/character/star"
+import Nely from "@/components/icons/character/nely"
 import { StaticImageData } from "next/image"
 
 const cx = classNames.bind(styles)
@@ -25,14 +25,14 @@ export const TIMINGFUNC_MAP = {
 interface characterItem<T extends string | number> {
   value: T,
   name: string,
-  src: StaticImageData | string
+  icon: MemoExoticComponent<any>
 }
 
 const characterList: characterItem<number>[] = [
-  { value: 1, name: 'nely', src: Nely },
-  { value: 2, name: 'luky', src: Luky },
-  { value: 3, name: 'star', src: Star },
-  { value: 4, name: 'hippy', src: Hippy },
+  { value: 1, name: 'nely', icon: Nely },
+  { value: 2, name: 'luky', icon: Luky },
+  { value: 3, name: 'star', icon: Star },
+  { value: 4, name: 'hippy', icon: Hippy },
 ]
 
 interface CharacterSliderProps {
@@ -114,8 +114,8 @@ const CharacterSlider = ({ data, onSelect: handleSelect = () => { } }: Character
     <div className={cx('slider')} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       <div className={cx('slider-container')}>
         <div style={{transform: `translate3d(${translate}px,0,0)`}} className={cx('slider-wrapper')}>
-          {data.map(item => <div key={item.name} className={cx('slider-item')}>
-            <Image src={item.src} alt={item.name} />
+          {data.map(({name, icon:Icon}) => <div key={name} className={cx('slider-item')}>
+            <Icon/>
           </div>)}
         </div>
       </div>
@@ -136,6 +136,12 @@ const Character = ({ }: Characterprops) => {
 
   console.log(character)
 
+  const handleClickComplete = (e:React.MouseEvent) => {
+    const findName = characterList.find(char => char.value === character)?.name
+
+    router.push(`/custom/${findName}`)
+  }
+
   return (
     <PageLayout>
       <section className={cx('setting-character')}>
@@ -144,7 +150,7 @@ const Character = ({ }: Characterprops) => {
           <p className={cx('page-desc')}>변장시킬 크루원을 선택해주세요!</p>
           <CharacterSlider data={characterList} onSelect={setCharacter} />
         </section>
-        <Button>선택</Button>
+        <Button onClick={handleClickComplete}>선택</Button>
       </section>
     </PageLayout>
   )

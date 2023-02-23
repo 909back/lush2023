@@ -17,7 +17,7 @@ const Header = () => {
   return <header className={cx('header')}>
     <button className={cx('header-button')} onClick={() => router.back() }><IconGoBack/></button>
     <h1 className={cx('page-title')}>
-      <Image src='/icons/logo.png' width={90} height={39} alt='러쉬로고'/>
+      <Image src='/icons/logo.svg' width={90} height={39} alt='러쉬로고'/>
     </h1>
     <Link href='/'><button className={cx('header-button')}><IconHome/></button></Link>
   </header>

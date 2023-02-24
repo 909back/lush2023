@@ -9,14 +9,12 @@ import IconHome from "@/components/icons/ic-home"
 
 const cx = classNames.bind(styles)
 
-
-
 const Header = () => {
   const router = useRouter()
   
   return <header className={cx('header')}>
     <button className={cx('header-button')} onClick={() => router.back() }><IconGoBack/></button>
-    <h1 className={cx('page-title')}>
+    <h1 className={cx('logo')}>
       <Image src='/icons/logo.svg' width={90} height={39} alt='러쉬로고'/>
     </h1>
     <Link href='/'><button className={cx('header-button')}><IconHome/></button></Link>

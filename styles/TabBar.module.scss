@@ -1,0 +1,22 @@
+@import "./variables";
+
+.tabBar-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap:14px;
+    padding: 20px 0;
+
+    .control-button {
+        display: flex;
+        font-size: 40px;
+        color:$white;
+        width: 40px;
+        height: 40px;
+        border:0;
+        border-radius: 50%;
+        background-color: $purple100;
+
+        &.right { transform: rotateY(180deg); }
+    }
+}

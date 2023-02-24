@@ -10,3 +10,8 @@ export namespace CharType {
         'hippy' = 4
     }
 }
+
+export interface DataType<T = any> {
+    name?:string
+    value:T
+}

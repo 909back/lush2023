@@ -1,7 +1,8 @@
 import { useRef } from 'react'
 import classNames from 'classnames/bind'
 import styles from '../../styles/Nely.module.scss'
-import PageLayout from '@/components/layout/PageLayout'
+import CustomLayout from '@/components/layout/CustomLayout'
+import TabBar from '@/components/controls/TabBar'
 
 const cx = classNames.bind(styles)
 
@@ -14,11 +15,9 @@ const Nely = ({
 }: NelyProps) => {
     const ctx = useRef<HTMLCanvasElement>(null)
     return (
-        <PageLayout>
-            <canvas ref={ctx} width='100%' height={460}>
-                
-            </canvas>
-        </PageLayout>
+        <CustomLayout>
+          <TabBar/>
+        </CustomLayout>
     )
 }
 

@@ -1,17 +1,17 @@
 import React from "react"
-import styles from "../../styles/Luck.module.scss"
+import styles from "../../styles/Luky.module.scss"
 import classNames from "classnames/bind"
 
 const cx = classNames.bind(styles)
 
-interface Luckprops {
+interface Lukyprops {
   children?: React.ReactNode
 }
-const Luck = ({}:Luckprops) => {
+const Luky = ({}:Lukyprops) => {
   return (
     <>
     </>
   )
 } 
 
-export default Luck
+export default Luky

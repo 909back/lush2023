@@ -1,18 +1,24 @@
 @import './variables.scss';
 
 
-.showcase-container {
-    width: calc(100% + 150px);
-    margin: 0 -75px;
-    padding:20px 0;
-    background-color: $purple20;
+.custom-content-wrapper {
     display: flex;
-    justify-content: center;
-    .showcase {
-        flex: 0 0 480px;
-        width: 480px;
-        height: 600px;
-        margin: 0 auto;
-        background-color: transparent;
+    flex-direction: column;
+
+    .showcase-container {
+        flex: 0 0 640px;
+        width: calc(100% + 150px);
+        margin: 0 -75px;
+        padding:20px 0;
+        background-color: $purple20;
+        display: flex;
+        justify-content: center;
+        .showcase {
+            flex: 0 0 480px;
+            width: 480px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: transparent;
+        }
     }
 }

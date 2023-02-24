@@ -1,8 +1,9 @@
-import { useRef } from 'react'
+import { useRef,useState } from 'react'
 import classNames from 'classnames/bind'
 import styles from '../../styles/Nely.module.scss'
 import CustomLayout from '@/components/layout/CustomLayout'
-import TabBar from '@/components/controls/TabBar'
+import { tabList } from '@/utils/data'
+
 
 const cx = classNames.bind(styles)
 
@@ -13,10 +14,11 @@ interface NelyProps {
 const Nely = ({
 
 }: NelyProps) => {
-    const ctx = useRef<HTMLCanvasElement>(null)
+    const canvasEl = useRef<HTMLCanvasElement>(null)
+    const [category, setCategory] = useState(tabList[0].value)
+
     return (
-        <CustomLayout>
-          <TabBar/>
+        <CustomLayout ref={canvasEl} tab={category} onChangeTab={setCategory}>
         </CustomLayout>
     )
 }

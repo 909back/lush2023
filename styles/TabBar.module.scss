@@ -1,6 +1,7 @@
 @import "./variables";
 
 .tabBar-container {
+    flex: 0 0 80px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -8,6 +9,7 @@
     padding: 20px 0;
 
     .control-button {
+        flex: 0 0 40px;
         display: flex;
         font-size: 40px;
         color:$white;
@@ -16,7 +18,41 @@
         border:0;
         border-radius: 50%;
         background-color: $purple100;
+        transition: background-color 0.3s linear;
 
+        &:hover { background-color: darken($purple100,10%);}
         &.right { transform: rotateY(180deg); }
+    }
+
+    .tab-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap:14px;
+        flex:1 0 0;
+        min-width: 0px;
+
+        .tab-btn {
+            flex: 1 0 fit-content;
+            height: 40px;
+            padding: 6px 20px;
+            border-radius: 20px;
+            background-color: $purple20;
+            color:$purple110;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 28px;
+            border:0;
+
+            &:hover {
+                background-color: darken($purple20,20%);
+                color:$white;
+            }
+
+            &.active {
+                color:$white;
+                background-color: $purple100;
+            }
+        }
     }
 }

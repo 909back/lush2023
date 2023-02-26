@@ -10,21 +10,22 @@ import ItemContainer, {ItemContainerProps} from "../controls/ItemContainer";
 const cx = classNames.bind(styles);
 
 interface CustomLayoutProps extends TabBarprops<string>, Omit<ItemContainerProps,'data'>  {
-  children?: React.ReactNode;
+  children?: React.ReactNode
   className?: string;
-  itemList?: DataType[]
+  itemList?: {color?:string[], item:DataType[]}
 }
 
 const CustomLayout = (
-  { children, className, data:tabData = tabList, tab, onChangeTab: handleChangeTab = () => { }, itemList, select, onSelect:handleSelect=()=>{} }: CustomLayoutProps,
-  ref: ForwardedRef<HTMLCanvasElement>
+  { children,className, data:tabData = tabList, tab, onChangeTab: handleChangeTab = () => { }, itemList, select, onSelect:handleSelect=()=>{} }: CustomLayoutProps,
 ) => {
 
   return (
     <PageLayout>
       <div className={cx('custom-content-wrapper')}>
         <div className={cx("showcase-container", className)}>
-          <canvas className={cx("showcase")} ref={ref} height={640} />
+          <div className={cx("showcase")}>
+            {children}
+          </div>
         </div>
         <TabBar tab={tab} data={tabData} onChangeTab={handleChangeTab} />
         <ItemContainer data={itemList} select={select} onSelect={handleSelect}/>
@@ -33,4 +34,4 @@ const CustomLayout = (
   );
 };
 
-export default forwardRef<HTMLCanvasElement, CustomLayoutProps>(CustomLayout);
+export default CustomLayout;

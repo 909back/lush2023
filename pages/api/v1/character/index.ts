@@ -9,7 +9,7 @@ const handler = async(req: NextApiRequest, res: NextApiResponse) => {
     if (method === 'POST') {
         const { id, name, head, body, face, head_width, head_y, body_width, body_y, face_width, face_y } = req.body
 
-        if(!id || id.isNumber()) res.status(400).send({code:400, message:'아이디(숫자)가 없습니다.'})
+        if(!id || !id.isNumber()) res.status(400).send({code:400, message:'아이디(숫자)가 없습니다.'})
         if (!name) res.status(400).send({ message: '이름이 없습니다.' })
         if (!head || !body || !face) res.status(400).send({code:400, message:'head,body,face는 필수값 입니다.'})
         if (!head_width.isNumber() || !head_y.isNumber() || !body_width.isNumber() || !body_y.isNumber() || !face_width.isNumber() || !face_y.isNumber()) res.status(400).send({code:400, message:'width,y 값은 숫자로 작성해주세요.'})

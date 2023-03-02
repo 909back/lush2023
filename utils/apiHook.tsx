@@ -31,7 +31,7 @@ export const useInitalCustom = <Data,Error=unknown>(
     return {data,isLoading,isValidating,isError:error,mutate}
 }
 
-const useLogin = async (name:string,character:keyof typeof CharType.List) => {
+export const useLogin = async (name:string,character:keyof typeof CharType.List) => {
     return await fetcher('/api/v1/user',{
         method:'POST',
         body: JSON.stringify({name,character})

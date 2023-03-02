@@ -16,7 +16,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         if (!head_width.isNumber() || !head_y.isNumber() || !body_width.isNumber() || !body_y.isNumber() || !face_width.isNumber() || !face_y.isNumber()) res.status(400).send({ code: 400, message: 'width,y 값은 숫자로 작성해주세요.' })
 
 
-        const result: any = await mariadb('INSERT INTO characters(id, name, head, head_w, head_y, body, body_w, body_y, face, face_w, face_y) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [parseInt(id), name, head, parseInt(head_width), parseInt(head_y), body, parseInt(body_width), parseInt(body_y), face, parseInt(face_width), parseInt(face_y)]);
+        await mariadb('INSERT INTO characters(id, name, head, head_w, head_y, body, body_w, body_y, face, face_w, face_y) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [parseInt(id), name, head, parseInt(head_width), parseInt(head_y), body, parseInt(body_width), parseInt(body_y), face, parseInt(face_width), parseInt(face_y)]);
         await addLog(req)
         res.status(200).send(true)
     }

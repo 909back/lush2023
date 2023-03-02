@@ -18,7 +18,7 @@ export default async <T extends any[]>(query: string, value: any[] = []) => {
         if ((err as any).errno === 45017) err = { code: 500, message: '값이 존재하지 않습니다' }
         else if ((err as any).errno === 1064) err = { code: 500, message: '파라미터에 문제가 있습니다' }
         else if ((err as any).errno === 1062) err = { code: 500, message: '이미 존재하는 값입니다' }
-
+        console.log(err)
         throw err
     } finally {
         await conn.end()

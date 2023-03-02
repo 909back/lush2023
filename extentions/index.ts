@@ -65,7 +65,9 @@ Number.prototype.fill = function(len: number, fillStr: string='0') {
     return this.toString().fill(len, fillStr)
 }
 
-String.prototype.isNumber = () => !isNaN(Number(this))
+String.prototype.isNumber = () => {
+    return isNaN(Number(this))
+}
 
 String.prototype.fill = function(len: number, fillStr: string='0') {
     let str = this.toString()

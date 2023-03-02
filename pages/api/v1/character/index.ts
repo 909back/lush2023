@@ -18,8 +18,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
         const result: any = await mariadb('INSERT INTO characters(id, name, head, head_w, head_y, body, body_w, body_y, face, face_w, face_y) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [parseInt(id), name, head, parseInt(head_width), parseInt(head_y), body, parseInt(body_width), parseInt(body_y), face, parseInt(face_width), parseInt(face_y)]);
         await addLog(req)
-        if (result.affectedRows) return res.status(200).send(true)
-        else throw { code: 500, message: '실패했습니다.' }
+        res.status(200).send(true)
     }
 }
 

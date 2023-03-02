@@ -3,11 +3,17 @@ import {DataType} from "@/interfaces";
 export const tabList: DataType[] = [
   {value: "head", name: "머리"},
   {value: "face", name: "표정"},
-  {value: "cloth", name: "옷"},
+  {value: "body", name: "옷"},
   {value: "acc", name: "악세사리"},
   {value: "item", name: "아이템"},
   {value: "background", name: "배경"},
 ];
+
+export const order = [
+  {name:'body', order:1},
+  {name:'head', order:2},
+  {name:'face', order:3},
+]
 
 export const initial = {
   nely: [
@@ -27,5 +33,6 @@ export const getImageSync = (src: string) => {
     const initial = new Image();
     initial.src = src;
     initial.onload = () => resolve(initial);
+    initial.onerror = () => reject(null)
   });
 };

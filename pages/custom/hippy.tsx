@@ -16,9 +16,9 @@ const Hippy = ({}: Hippyprops) => {
 
   const data = [
     {name: "head1", value: "https://lush.s3.ap-northeast-2.amazonaws.com/hippy/head/head3.svg"},
-    {name: "head1", value: "https://lush.s3.ap-northeast-2.amazonaws.com/hippy/head/head4.svg"},
-    {name: "head1", value: "https://lush.s3.ap-northeast-2.amazonaws.com/hippy/head/head5.svg"},
-    {name: "head1", value: "https://lush.s3.ap-northeast-2.amazonaws.com/hippy/head/head9.svg"},
+    {name: "head2", value: "https://lush.s3.ap-northeast-2.amazonaws.com/hippy/head/head4.svg"},
+    {name: "head3", value: "https://lush.s3.ap-northeast-2.amazonaws.com/hippy/head/head5.svg"},
+    {name: "head4", value: "https://lush.s3.ap-northeast-2.amazonaws.com/hippy/head/head9.svg"},
   ];
   const [select, setSelect] = useState<string>();
 
@@ -26,14 +26,9 @@ const Hippy = ({}: Hippyprops) => {
     const ctx = canvas.getContext("2d");
     const {width: x} = canvas.getBoundingClientRect();
     if (!ctx) return;
-    const body = await getImageSync(data[0].src);
-    ctx.drawImage(body, x / 2 - data[0].width / 2, data[0].y);
-
-    const head = await getImageSync(data[1].src);
-    ctx.drawImage(head, x / 2 - data[1].width / 2, data[1].y);
-
-    const face = await getImageSync(data[2].src);
-    ctx.drawImage(face, x / 2 - data[2].width / 2, data[2].y);
+    const images = await Promise.all(custom.map(item => getImageSync(item.src)))
+    
+    images.forEach((image,i) => ctx.drawImage(image, x/2 - (data[i].width /2),data[i].y))
   };
 
   useEffect(() => {

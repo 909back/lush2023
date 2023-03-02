@@ -22,24 +22,24 @@ export const TIMINGFUNC_MAP = {
 }
 
 
-interface characterItem<T extends string | number> {
+interface characterItem<T extends any> {
   value: T,
   name: string,
   icon: MemoExoticComponent<any>
 }
 
-const characterList: characterItem<number>[] = [
-  { value: 1, name: 'nely', icon: Nely },
-  { value: 2, name: 'luky', icon: Luky },
-  { value: 3, name: 'star', icon: Star },
-  { value: 4, name: 'hippy', icon: Hippy },
+const characterList: characterItem<string>[] = [
+  { value: 'nely', name: 'nely', icon: Nely },
+  { value: 'luky', name: 'luky', icon: Luky },
+  { value: 'star', name: 'star', icon: Star },
+  { value: 'hippy', name: 'hippy', icon: Hippy },
 ]
 
-interface CharacterSliderProps {
-  data: characterItem<number>[],
-  onSelect?: (value: number) => void
+interface CharacterSliderProps<T> {
+  data: characterItem<T>[],
+  onSelect?: (value: T ) => void
 }
-const CharacterSlider = ({ data, onSelect: handleSelect = () => { } }: CharacterSliderProps) => {
+const CharacterSlider = <T extends any>({ data, onSelect: handleSelect = () => { } }: CharacterSliderProps<T>) => {
   const [index, setIndex] = useState<number>(0)
   const [translate, setTranslate] = useState(0)
   const touchX = useRef<number>(0)

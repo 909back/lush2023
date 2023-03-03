@@ -11,7 +11,7 @@ import Luky from "@/components/icons/character/luky"
 import Star from "@/components/icons/character/star"
 import Nely from "@/components/icons/character/nely"
 import { StaticImageData } from "next/image"
-import { useLogin } from "@/utils/apiHook"
+import { login } from "@/utils/apiHook"
 import useToast from "@/utils/useToast"
 import { CharType } from "@/interfaces"
 
@@ -140,7 +140,7 @@ const Character = ({ }: Characterprops) => {
 
   const handleClickComplete = async (e: React.MouseEvent) => {
     try {
-      await useLogin(nickname as string, character as keyof typeof CharType.List)
+      await login(nickname as string, character as keyof typeof CharType.List)
       router.push(`/custom/${character}`)
     } catch (err) {
       if (err) addToast('알 수 없는 에러로 로그인 할  수 없습니다.')

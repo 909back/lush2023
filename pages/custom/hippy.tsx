@@ -47,12 +47,23 @@ const Hippy = ({}: Hippyprops) => {
 
 
   const handleSelect = (val: string) => {
-    if(!custom || !val) return
-    let prevVal = custom.find((item) => item.name === category);
-    if(!prevVal) prevVal = list?.find(item => item.src === val)!
+    if(!custom) return
     const ctx = canvasEl.current?.getContext("2d");
     if (!ctx || !canvasEl.current) return;
     const {width: x,height} = canvasEl.current.getBoundingClientRect();
+    
+    if(!val) {
+      ctx.clearRect(0,0, x,height);
+      setCustom((prev) => {
+        const filtered = prev.filter((item) => item.name !== category);
+        return [...filtered];
+      });
+
+      return
+    }
+    let prevVal = custom.find((item) => item.name === category);
+    if(!prevVal) prevVal = list?.find(item => item.src === val)!
+
     ctx.clearRect(0,0, x,height);
 
     setSelect(val);

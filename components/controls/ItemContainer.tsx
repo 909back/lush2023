@@ -5,28 +5,32 @@ import styles from '../../styles/ItemContainer.module.scss'
 
 const cx = classNames.bind(styles)
 
-export interface ItemContainerProps<T=string> {
+export interface ItemContainerProps<T = string> {
     children?: React.ReactNode
-    data?: {color?:string[], item:DataType<T>[]}
+    classname?:string,
+    data?: { color?: string[], item: DataType<T>[] }
     select?: T,
-    onSelect?: (newVal:T) => void
+    onSelect?: (newVal: T) => void
     selColor?: string,
-    onColorSelect?: (newColor?:string) => void
+    onColorSelect?: (newColor?: string) => void
 }
 
 const ItemContainer = <T extends string>({
-    data={item:[]},
+    data = { item: [] },
     select,
-    onSelect:handeSelect = () => {},
+    classname,
+    onSelect: handeSelect = () => { },
     selColor,
-    onColorSelect: handleColorSelect = () => {}
+    onColorSelect: handleColorSelect = () => { }
 }: ItemContainerProps<T>) => {
     return (
-        <div className={cx('item-container')}>
-            {data.color && <div className={cx("color-seleter-wrapper")}>{data.color.map(hex => <button key={hex} style={{backgroundColor:hex}} className={cx('color-selecter')}/>)}</div>}
-            {data.item.map(item => <div key={item.name} className={cx('item')} onClick={()=> handeSelect(item.value)}>
-                <Image src={item?.value??""} alt={item.name??""} fill/>
-            </div>)}
+        <div className={cx('item-wrapper')}>
+            <div className={cx('item-container')}>
+                {data.color && <div className={cx("color-seleter-wrapper")}>{data.color.map(hex => <button key={hex} style={{ backgroundColor: hex }} className={cx('color-selecter')} />)}</div>}
+                {data.item.map(item => <div key={item.name} className={cx('item',classname)} onClick={() => handeSelect(item.value)}>
+                    <Image src={item?.value ?? ""} alt={item.name ?? ""} fill />
+                </div>)}
+            </div>
         </div>
     )
 }

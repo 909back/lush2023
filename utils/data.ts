@@ -1,6 +1,6 @@
-import {DataType} from "@/interfaces";
+import {Category, DataType} from "@/interfaces";
 
-export const tabList: DataType[] = [
+export const tabList: DataType<keyof typeof Category>[] = [
   {value: "head", name: "머리"},
   {value: "face", name: "표정"},
   {value: "body", name: "옷"},
@@ -28,7 +28,7 @@ export const initial = {
   ],
 };
 
-export const getImageSync = (src: string) => {
+export const getImageSync = (src: string,color?:string) => {
   return new Promise<HTMLImageElement>((resolve, reject) => {
     const initial = new Image();
     initial.src = src;

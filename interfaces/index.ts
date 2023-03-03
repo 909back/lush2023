@@ -4,11 +4,13 @@ export namespace CharType {
 
 
     export interface Initial {
+        order:number,
+        name: keyof typeof Category
         src: string,
         width: number,
+        x?:number,
         y: number
     }
-
 
     export const enum List {
         'nely',
@@ -18,14 +20,14 @@ export namespace CharType {
     }
 }
 
-export const enum Category {
-    'head',
-    'body',
-    'face',
-    'acc',
-    'item',
-    'background'
-}
+export const Category = {
+    'background': 0,
+    'head':1,
+    'body':2,
+    'face':3,
+    'acc':4,
+    'item':5,
+} as const
 
 export interface DataType<T = any> {
     name?: string
@@ -40,15 +42,19 @@ export namespace ApiData {
      }
 
      export interface Item {
+        order?:number
         id:number,
         name?:string,
         src:string,
-        width?:number,
-        x:number,
+        width:number,
+        x?:number,
         y:number
      }
    }
 }
 
-export { }
+export interface Toasts {
+    id?:any,
+    message:string
+}
 

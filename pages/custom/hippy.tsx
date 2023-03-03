@@ -35,7 +35,7 @@ const Hippy = ({}: Hippyprops) => {
 
   useEffect(()=>{
     if(!list) return
-    setData(list?.reduce<DataType<string>[]>((p,v) =>[...p, {name:v.name,value:v.src}],[]))
+    setData(list?.reduce<DataType<string>[]>((p,v) => v.noValue ? [...p, {name:v.src, value:''}] :[...p, {name:v.name,value:v.src}],[]))
   },[category, list])
 
   useEffect(() => {
@@ -45,19 +45,20 @@ const Hippy = ({}: Hippyprops) => {
     drawCharacter(canvasEl.current, ordered);
   }, [custom]);
 
-  console.log(list)
+
   const handleSelect = (val: string) => {
-    if(!custom) return
-    const prevVal = custom.find((item) => item.name === category)!;
+    if(!custom || !val) return
+    let prevVal = custom.find((item) => item.name === category);
+    if(!prevVal) prevVal = list?.find(item => item.src === val)!
     const ctx = canvasEl.current?.getContext("2d");
     if (!ctx || !canvasEl.current) return;
     const {width: x,height} = canvasEl.current.getBoundingClientRect();
-    ctx.clearRect(0,0, x,height );
+    ctx.clearRect(0,0, x,height);
 
     setSelect(val);
     setCustom((prev) => {
       const filtered = prev.filter((item) => item.name !== category);
-      return [...filtered, {...prevVal, src: val, order:Category[category]}];
+      return [...filtered, {width:0,y:0,...prevVal, src: val, order:Category[category],name:category}];
     });
   };
 

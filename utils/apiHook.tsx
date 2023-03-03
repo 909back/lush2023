@@ -22,7 +22,7 @@ export const useCustomList = <Data=ApiData.Custom.Item[],Error=unknown>(category
     return {data,isLoading,isValidating,isError:error,mutate}
 }
 
-export const useInitalCustom = <Data=CharType.Initial[],Error=unknown>(
+export const useInitalCustom = <Data=ApiData.Custom.Item[],Error=unknown>(
     character:keyof typeof CharType.List,
     fetcherConfig?:SWRConfiguration<Data,Error,BareFetcher<Data>>
 ) => {

@@ -42,13 +42,14 @@ export namespace ApiData {
      }
 
      export interface Item {
-        order?:number
-        id:number,
-        name?:string,
+        order:number
+        id?:number,
+        name:string,
         src:string,
         width:number,
         x?:number,
         y:number
+        noValue?:boolean
      }
    }
 }

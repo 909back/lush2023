@@ -20,7 +20,7 @@ const post = async(req:NextApiRequest, res:NextApiResponse) => {
     const accessToken = jwt.sign({name, character},process.env.NEXT_SECRET_KEY??"",{expiresIn:'1h'})
 
     res.setHeader('Set-Cookie',[`accessToken=${accessToken}; max-age=3600; path=/; httpOnly;`])
-    res.status(301).redirect(`/custom/${character}`)
+    res.status(200).send(true)
 }
 
 const handler = (req:NextApiRequest, res:NextApiResponse) => {

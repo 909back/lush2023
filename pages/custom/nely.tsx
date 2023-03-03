@@ -23,7 +23,7 @@ const Nely = ({
     }, [])
 
     return (
-        <CustomLayout tab={category} onChangeTab={setCategory}>
+        <CustomLayout tab={category} data={tabList} onChangeTab={setCategory}>
         </CustomLayout>
     )
 }

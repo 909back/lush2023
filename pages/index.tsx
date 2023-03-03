@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import Link from "next/link";
 
+
 const cx = classNames.bind(styles)
 
 export default function Home() {

@@ -2,30 +2,31 @@ import classNames from "classnames/bind";
 import {useRef, forwardRef, ForwardedRef} from "react";
 import styles from "../../styles/CustomLayout.module.scss";
 import PageLayout from "./PageLayout";
-import {DataType} from "@/interfaces";
+import {Category, DataType} from "@/interfaces";
 import {tabList} from "@/utils/data";
 import TabBar, {TabBarprops} from "../controls/TabBar";
 import ItemContainer, {ItemContainerProps} from "../controls/ItemContainer";
 
 const cx = classNames.bind(styles);
 
-interface CustomLayoutProps extends TabBarprops<string>, Omit<ItemContainerProps, "data"> {
+interface CustomLayoutProps<T> extends TabBarprops<T>, Omit<ItemContainerProps, "data"> {
   children?: React.ReactNode;
   className?: string;
   itemList?: {color?: string[]; item: DataType[]};
 }
 
-const CustomLayout = (
+const CustomLayout = <T extends string>(
   {
     children,
     className,
-    data: tabData = tabList,
+    classname,
+    data: tabData,
     tab,
     onChangeTab: handleChangeTab = () => {},
     itemList,
     select,
     onSelect: handleSelect = () => {},
-  }: CustomLayoutProps,
+  }: CustomLayoutProps<T>,
   ref: ForwardedRef<HTMLCanvasElement>
 ) => {
   return (
@@ -38,10 +39,10 @@ const CustomLayout = (
           <canvas ref={ref} className={cx("showcase")} width={480} height={600} />
         </div>
         <TabBar tab={tab} data={tabData} onChangeTab={handleChangeTab} />
-        <ItemContainer data={itemList} select={select} onSelect={handleSelect} />
+        <ItemContainer data={itemList} select={select} onSelect={handleSelect} classname={classname} />
       </div>
     </PageLayout>
   );
 };
 
-export default forwardRef<HTMLCanvasElement, CustomLayoutProps>(CustomLayout);
+export default forwardRef<HTMLCanvasElement, CustomLayoutProps<any>>(CustomLayout);

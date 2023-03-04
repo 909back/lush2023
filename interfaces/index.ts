@@ -22,8 +22,8 @@ export namespace CharType {
 
 export const Category = {
     'background': 0,
-    'head':1,
-    'body':2,
+    'head':2,
+    'body':1,
     'face':3,
     'acc':4,
     'item':5,

@@ -24,7 +24,17 @@ export const initial = {
   hippy: [
     {order: 1, name: "body", src: "https://lush.s3.ap-northeast-2.amazonaws.com/hippy/initial/body.svg", width: 250.5, y: 289.11},
     {order: 2, name: "head", src: "https://lush.s3.ap-northeast-2.amazonaws.com/hippy/initial/head.svg", width: 349.5, y: 235},
-    {order: 3, name: "face", src: "https://lush.s3.ap-northeast-2.amazonaws.com/hippy/initial/face.svg", width: 199.5, y: 315.32},
+    {order: 3, name: "face", src: "https://lush.s3.ap-northeast-2.amazonaws.com/hippy/initial/face.svg", width: 199.5, y: 295.32},
+  ],
+  luky: [
+    {order: 1, name: "body", src: "https://lush.s3.ap-northeast-2.amazonaws.com/luky/initial/body.svg", width: 300, y: 288.68},
+    {order: 2, name: "head", src: "https://lush.s3.ap-northeast-2.amazonaws.com/luky/initial/head.svg", width: 450, y: 210},
+    {order: 3, name: "face", src: "https://lush.s3.ap-northeast-2.amazonaws.com/luky/initial/face.svg", width: 150, y: 347.97},
+  ],
+  star: [
+    {order: 1, name: "body", src: "https://lush.s3.ap-northeast-2.amazonaws.com/star/initial/body.svg", width: 355.48, y: 299.61},
+    {order: 2, name: "head", src: "https://lush.s3.ap-northeast-2.amazonaws.com/star/initial/head.svg", width: 244.57, y: 206},
+    {order: 3, name: "face", src: "https://lush.s3.ap-northeast-2.amazonaws.com/star/initial/face.svg", width: 94.57, y: 281},
   ],
 };
 

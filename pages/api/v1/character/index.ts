@@ -12,10 +12,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
         if (!id || !id.isNumber()) throw { code: 400, message: '아이디(숫자)가 없습니다.' }
         if (!name) throw { code:400, message: '이름이 없습니다.' }
-        if (!head || !body || !face) throw { code: 400, message: 'head,body,face는 필수값 입니다.' }
         if (!head_width.isNumber() || !head_y.isNumber() || !body_width.isNumber() || !body_y.isNumber() || !face_width.isNumber() || !face_y.isNumber()) throw { code: 400, message: 'width,y 값은 숫자로 작성해주세요.' }
-
-        await mariadb('INSERT INTO characters(id, name, head, head_w, head_y, body, body_w, body_y, face, face_w, face_y) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [parseInt(id), name, head, parseInt(head_width), parseInt(head_y), body, parseInt(body_width), parseInt(body_y), face, parseInt(face_width), parseInt(face_y)]);
+        const baseurl = `https://lush.s3.ap-northeast-2.amazonaws.com/${name}/initial/`
+        await mariadb('INSERT INTO characters(id, name, head, head_w, head_y, body, body_w, body_y, face, face_w, face_y) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [Number(id), name, head??baseurl+'head.svg', Number(head_width), Number(head_y), body??baseurl+'body.svg', Number(body_width), Number(body_y), face??baseurl+'face.svg', Number(face_width), Number(face_y)]);
         await addLog(req)
         res.status(200).send(true)
     }

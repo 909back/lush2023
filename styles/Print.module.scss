@@ -1,0 +1,36 @@
+@import './variables.scss';
+.print-page {
+    .print-content {
+        height: 100%;
+        padding: 0 0 45px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .preview-container {
+            flex: 0 0 fit-content;
+            .page-title {
+                color:$purple110;
+                font-size: 30px;
+                font-weight: 900;
+                text-align: center;
+                line-height: 107px;
+            }
+            .complete-image {
+                width: 480px;
+                height: 600px;
+                margin: 0 auto;
+                position: relative;
+            }
+            .page-description {
+                margin-top: 26px;
+                color: $purple110;
+                font-size: 25px;
+                font-weight: 700;
+                line-height: 34px;
+                text-align: center;
+            }
+        }
+    }
+}

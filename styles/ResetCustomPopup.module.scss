@@ -1,0 +1,53 @@
+@import './variables.scss';
+
+.reset-custom-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+    width: 480px;
+    height: 235px;
+    padding:0 20px 0 19px;
+    background-color: $white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    .info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex:1 0 0;
+        color:$black100;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 33px;
+    }
+    .control-button-wrapper {
+        flex: 0 0 fit-content;
+        padding:5px 0 21px;
+        display: flex;
+        align-items: center;
+        gap:11px;
+
+        @mixin buttonSt {
+            flex:1;
+            height: 70px;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 70px;
+            border:0;
+            border-radius: 10px;
+        }
+
+        .positive-button {
+            @include buttonSt();
+            color:$white;
+            background-color:$purple100;
+        }
+        .negative-button {
+            @include buttonSt();
+            background-color: $purple20;
+            color:$black100;
+        }
+    }
+}

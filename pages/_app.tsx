@@ -10,5 +10,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <div id='toast'>
       <Toast/>
     </div>
+    <div id='popup'/>
   </RecoilRoot>
 }

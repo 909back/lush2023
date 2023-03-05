@@ -1,0 +1,100 @@
+@import './variables.scss';
+
+.capture-container {
+    height: 100%;
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 111px 0 75px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-48.5%);
+
+    .capture-section {
+        height: 600px;
+        width: 480px;
+        position: relative;
+        background-color: $purple20;
+
+        .complete-png {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carmera-section {
+            position: absolute;
+            top: 16px;
+            left: 15px;
+            width: calc(100% - 30px);
+            height: calc(100% - 30px);
+
+            $red: #FF0000;
+
+            @mixin cornerRect {
+                width: 38px;
+                height: 38px;
+                border-style: solid;
+                border-color: $red;
+                position: absolute
+            }
+
+            .rect-top-left {
+                @include cornerRect();
+                top: 0px;
+                left: 0px;
+                border-width: 3px 0 0 3px;
+            }
+
+            .rect-top-right {
+                @include cornerRect();
+                top: 0px;
+                right: 0px;
+                border-width: 3px 3px 0 0;
+            }
+
+            .rect-center {
+                @include cornerRect();
+                border-width: 0;
+                top: 50%;
+                left: 50%;
+                transform: translate3d(-50%, -50%, 0);
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 50%;
+                    border-bottom: 3px solid $red;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    display: block;
+                    width: 50%;
+                    height: 100%;
+                    border-right: 3px solid $red;
+                }
+            }
+
+            .rect-bottom-left {
+                @include cornerRect();
+                bottom: 0px;
+                left: 0px;
+                border-width: 0 0 3px 3px;
+            }
+
+            .rect-bottom-right {
+                @include cornerRect();
+                bottom: 0px;
+                right: 0px;
+                border-width: 0 3px 3px 0;
+            }
+        }
+    }
+}

@@ -59,3 +59,9 @@ export interface Toasts {
     message:string
 }
 
+export namespace PopupTypes {
+    export interface Default {
+        onPositive?: () => void
+        onNegative?: () => void
+    }
+}

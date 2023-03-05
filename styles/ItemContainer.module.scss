@@ -4,7 +4,7 @@
     flex:1 0 0;
     min-height: 0px;   
     overflow-y: auto;
-    &::-webkit-scrollbar { background-color: transparent;}
+    &::-webkit-scrollbar { width:8px; background-color: transparent;}
     &::-webkit-scrollbar-thumb { background-color:$purple100; border-radius: 10px;}
 
     .item-container {

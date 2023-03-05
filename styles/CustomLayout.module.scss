@@ -14,12 +14,55 @@
         background-color: $purple20;
         display: flex;
         justify-content: center;
+        position: relative;
         .showcase {
             flex: 0 0 480px;
             width: 480px;
             height: 600px;
             margin: 0 auto;
             background-color: transparent;
+        }
+
+        @mixin commonButtom {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 0;
+            transition: all 0.3s ease-in-out;
+        }
+        .action-button-wrapper {
+            position: absolute;
+            padding:0 75px;
+            left: 0px;
+            right: 0px;
+            bottom: 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .reset-button {
+                @include commonButtom();
+                color:$white;
+                font-size: 30px;
+                background-color: $purple100;
+                &:active {
+                    color:darken($white,20%);
+                    background-color: darken($purple100,20%);
+                }
+            }
+            .capture-button {
+                @include commonButtom();
+                color:$white;
+                font-size: 34px;
+                background-color: $black45;
+                &:active {
+                    color:darken($white,1%);
+                    background-color: $purple100;
+                }
+            }
         }
     }
 }

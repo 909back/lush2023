@@ -38,9 +38,10 @@ const Hippy = ({ }: Hippyprops) => {
     content: ResetCustomPoup,
     onPositive: () => {
       resetCanvas();
+      setBackground('')
       setCustom(initial ?? [])
       if (!canvasEl.current) return;
-      drawCharacter(canvasEl.current, initial??[]);
+    //   drawCharacter(canvasEl.current, initial??[]);
     },
     onNegative: () => { }
   })

@@ -65,7 +65,7 @@ const CharacterSlider = <T extends any>({ data, onSelect: handleSelect = () => {
   }
 
   const forward = (duration = 400) => {
-    if (index > data.length - 1) return
+    if (index >= data.length - 1) return
 
     let start: number;
 
@@ -140,7 +140,7 @@ const Character = ({ }: Characterprops) => {
   const handleClickComplete = async (e: React.MouseEvent) => {
     try {
       await login(nickname as string, character as keyof typeof CharType.List)
-      router.push(`/custom/${character}`)
+      router.push(`/custom/${character}`,`/custom/${character}`,{shallow:true})
     } catch (err) {
       if (err) addToast(err as string)
     }

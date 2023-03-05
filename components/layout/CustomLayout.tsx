@@ -56,4 +56,4 @@ const CustomLayout = <T extends string>(
   )
 }
 
-export default forwardRef<HTMLCanvasElement, CustomLayoutProps<any>>(CustomLayout);
+export default forwardRef<HTMLCanvasElement, CustomLayoutProps<any>>(CustomLayout)

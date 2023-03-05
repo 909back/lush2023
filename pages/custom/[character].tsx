@@ -114,7 +114,7 @@ const Hippy = ({ }: Hippyprops) => {
   return <>
     {resetPopup}
     {capturePoup}
-    <CustomLayout background={background} classname={(category === 'face' && character === 'hippy') ? cx('black') : undefined} onClickReset={resetPopupOpen} onClickCapture={capturePopupOpen} ref={canvasEl} tab={category} data={tabList} onChangeTab={setCategory} itemList={{ item: data ?? [] }} select={select} onSelect={handleSelect}></CustomLayout>;
+    <CustomLayout background={background} classname={(category === 'face' && character === 'hippy') ? cx('black') : undefined} onClickReset={resetPopupOpen} onClickCapture={capturePopupOpen} ref={canvasEl} tab={category} data={tabList} onChangeTab={setCategory} itemList={{ item: data ?? [] }} select={select} onSelect={handleSelect}></CustomLayout>
   </>
 };
 

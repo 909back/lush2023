@@ -31,6 +31,11 @@ export const useInitalCustom = <Data=ApiData.Custom.Item[],Error=unknown>(
     return {data,isLoading,isValidating,isError:error,mutate}
 }
 
+export const useUser = <Data=string,Error=unknown>() => {
+    const {data, isLoading, isValidating, error, mutate} = useSWR<Data,Error>(`/api/v1/user`,fetcher)
+    return {data,isLoading,isValidating,isError:error,mutate}
+}
+
 export const login = async (name:string,character:keyof typeof CharType.List) => {
     return await fetcher('/api/v1/user',{
         method:'POST',

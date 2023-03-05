@@ -23,8 +23,17 @@ const post = async(req:NextApiRequest, res:NextApiResponse) => {
     res.status(200).send(true)
 }
 
+const get = async(req:NextApiRequest, res:NextApiResponse) => {
+    const token = req.cookies.accessToken??""
+    if(!token) throw {code:401, message:'잘못된 접근입니다.'}
+    const payload:any = jwt.decode(token)
+    console.log(payload)
+    res.status(200).json(payload?.name??`${new Date().getTime()}`)
+}
+
 const handler = (req:NextApiRequest, res:NextApiResponse) => {
     switch(req.method) {
+        case 'GET' : return get(req,res)
         case 'POST': return post(req,res)
     }
 }

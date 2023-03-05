@@ -3,9 +3,9 @@ import Image from 'next/image'
 import styles from '../../styles/Print.module.scss'
 import PageLayout from '@/components/layout/PageLayout'
 import Button from '@/components/controls/Button'
-import Link from 'next/link'
 import { userImage } from '@/recoil/atom'
 import { useRecoilValue } from 'recoil'
+import { useUser } from '@/utils/apiHook'
 const cx = classNames.bind(styles)
 
 interface PrintProps {
@@ -15,11 +15,13 @@ interface PrintProps {
 const Print = ({
 
 }: PrintProps) => {
+    const {data:name} = useUser()
     const image = useRecoilValue(userImage)
+
     const handleClick = () => {
         const download = document.createElement('a')
         download.href = image
-        download.download = '이미지.png'
+        download.download = `${name}.png`
         download.click()
 
         location.href ='alisionsocial://'

@@ -10,15 +10,15 @@
         flex: 0 0 640px;
         width: calc(100% + 150px);
         margin: 0 -75px;
-        padding:20px 0;
+        // padding:20px 0;
         background-color: $purple20;
         display: flex;
         justify-content: center;
         position: relative;
         .showcase {
-            flex:0 0 480px;
-            width: 480px;
-            height: 600px;
+            flex:1;
+            // width: 480px;
+            // height: 600px;
             margin: 0 auto;
             background-color: transparent;
         }

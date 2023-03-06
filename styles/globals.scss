@@ -21,7 +21,10 @@ body {
 
 #__next {
   width: 100%;
+  max-width: $ipad-width;
   height: 100%;
+  margin: 0 auto;
+  position: relative;
 }
 
 

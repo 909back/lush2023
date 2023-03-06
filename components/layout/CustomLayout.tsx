@@ -39,7 +39,7 @@ const CustomLayout = <T extends string>(
     <PageLayout>
       <div className={cx("custom-content-wrapper")}>
         <div style={{background}} className={cx("showcase-container", className)}>
-          <canvas ref={ref} className={cx("showcase")} width={480} height={600} />
+          <canvas ref={ref} className={cx("showcase")} height={640} />
           <div className={cx('action-button-wrapper')}>
               <button className={cx('reset-button')} onClick={handleClickReset}>
                 <IconReset/>

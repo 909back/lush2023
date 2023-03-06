@@ -24,7 +24,7 @@ const Hippy = ({ }: Hippyprops) => {
   const { data: list } = useCustomList(category, character)
   const [custom, setCustom] = useState(initial ?? []);
   const [data, setData] = useState<DataType[]>([])
-  const [image, setImage] = useState<string>()
+  const [image, setImage] = useState<string>('')
   const canvasEl = useRef<HTMLCanvasElement>(null);
 
     
@@ -47,7 +47,7 @@ const Hippy = ({ }: Hippyprops) => {
   })
 
   const { open: capturePopupOpen, popup: capturePoup } = usePopup({
-    content: () => <CapturePoup image={canvasEl?.current?.toDataURL('image/png')??''} />,
+    content: () => <CapturePoup image={image} />,
     onPositive: () => { },
     onNegative: () => { }
   })
@@ -62,13 +62,13 @@ const Hippy = ({ }: Hippyprops) => {
         ctx.drawImage(image, x / 2 - (data[i].width / 2), data[i].y)
     })
 
-    const imageData = ctx.getImageData((x-480)/2, 0, 480,600)
+    const imageData = ctx.getImageData((x-480)/2, 20, 480,600)
     const newCtx = document.createElement('canvas')
     newCtx.width = 480
     newCtx.height= 600
     const a = newCtx.getContext('2d')
     a?.putImageData(imageData,0,0)
-    console.log(newCtx.toDataURL())
+    setImage(newCtx.toDataURL())
   };
 
 
@@ -85,6 +85,7 @@ const Hippy = ({ }: Hippyprops) => {
     if (!custom) return
     const ordered = custom.sort((a, b) => a.order - b.order);
     if (!canvasEl.current) return;
+    canvasEl.current.width = window.innerWidth;
     drawCharacter(canvasEl.current, ordered);
   }, [custom]);
 
@@ -122,7 +123,7 @@ const Hippy = ({ }: Hippyprops) => {
   return <>
     {resetPopup}
     {capturePoup}
-    <CustomLayout background={background} classname={(category === 'face' && character === 'hippy') ? cx('black') : undefined} onClickReset={resetPopupOpen} onClickCapture={capturePopupOpen} ref={canvasEl} tab={category} data={tabList} onChangeTab={setCategory} itemList={{ item: data ?? [] }} select={select} onSelect={handleSelect}></CustomLayout>
+    <CustomLayout classname={(category === 'face' && character === 'hippy') ? cx('black') : undefined} onClickReset={resetPopupOpen} onClickCapture={capturePopupOpen} ref={canvasEl} tab={category} data={tabList} onChangeTab={setCategory} itemList={{ item: data ?? [] }} select={select} onSelect={handleSelect}></CustomLayout>
   </>
 };
 

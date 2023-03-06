@@ -5,7 +5,8 @@
  width: fit-content;
  height: fit-content;
  position: relative;
- width: 480px;
+ width: 100%;
+ max-width: 480px;
  height: 60px;
  border-radius: 10px;
  .input {

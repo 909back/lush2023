@@ -8,7 +8,8 @@
     outline: none;
 
     &.default {
-        width: 480px;
+        width: 100%;
+        max-width: 480px;
         height: 60px;
         padding: 14px 10px 13px;
         color:$white;

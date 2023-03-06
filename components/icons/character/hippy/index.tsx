@@ -2,7 +2,7 @@ import * as React from "react";
 import {SVGProps, memo} from "react";
 
 const Hippy = (props: SVGProps<SVGSVGElement>) => (
-  <svg width="350" height="520" viewBox="0 0 350 520" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg width="1em" height="1.486em" viewBox="0 0 350 520" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M152.95 203.33C149.82 203.33 147.29 200.8 147.29 197.67V189C147.29 185.87 149.82 183.34 152.95 183.34C156.08 183.34 158.61 185.87 158.61 189V197.67C158.61 200.8 156.08 203.33 152.95 203.33Z"
       fill="#FBEA06"

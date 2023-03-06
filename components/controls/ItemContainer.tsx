@@ -28,7 +28,7 @@ const ItemContainer = <T extends string>({
             <div className={cx('item-container')}>
                 {data.color && <div className={cx("color-seleter-wrapper")}>{data.color.map(hex => <button key={hex} style={{ backgroundColor: hex }} className={cx('color-selecter')} />)}</div>}
                 {data.item.map(item => <div key={item.name} className={cx('item',classname)} onClick={() => handeSelect(item.value)}>
-                    <Image src={!!item.value ?item.value : item.name??''} alt={item.name ?? ""} fill />
+                    <Image src={!!item.value ?item.value : item.name??''} alt={item.name ?? ""} fill objectFit='cover' />
                 </div>)}
             </div>
         </div>

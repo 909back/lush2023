@@ -22,6 +22,7 @@
             height: 100%;
             position: relative;
             background-color: $white;
+            img { object-fit: cover;}
         }
         .color-selector-wrapper {
             display: flex;

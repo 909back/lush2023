@@ -24,6 +24,7 @@ const Hippy = ({ }: Hippyprops) => {
   const { data: list } = useCustomList(category, character)
   const [custom, setCustom] = useState(initial ?? []);
   const [data, setData] = useState<DataType[]>([])
+  const [image, setImage] = useState<string>()
   const canvasEl = useRef<HTMLCanvasElement>(null);
 
     
@@ -41,7 +42,6 @@ const Hippy = ({ }: Hippyprops) => {
       setBackground('')
       setCustom(initial ?? [])
       if (!canvasEl.current) return;
-    //   drawCharacter(canvasEl.current, initial??[]);
     },
     onNegative: () => { }
   })
@@ -53,7 +53,7 @@ const Hippy = ({ }: Hippyprops) => {
   })
 
   const [select, setSelect] = useState<string>();
-  const drawCharacter = async (canvas: HTMLCanvasElement, data: typeof custom) => {
+  const drawCharacter = async (canvas: HTMLCanvasElement, data: typeof custom, all?:boolean) => {
     const ctx = canvas.getContext("2d");
     const { width: x } = canvas.getBoundingClientRect();
     if (!ctx) return;
@@ -62,14 +62,15 @@ const Hippy = ({ }: Hippyprops) => {
         ctx.drawImage(image, x / 2 - (data[i].width / 2), data[i].y)
     })
 
-    // const imageData = ctx.getImageData(0, 0, 480,600)
-    // const newCtx = document.createElement('canvas')
-    // newCtx.width = 480
-    // newCtx.height= 600
-    // const a = newCtx.getContext('2d')
-    // a?.putImageData(imageData,0,0)
-    // console.log(newCtx.toDataURL())
+    const imageData = ctx.getImageData((x-480)/2, 0, 480,600)
+    const newCtx = document.createElement('canvas')
+    newCtx.width = 480
+    newCtx.height= 600
+    const a = newCtx.getContext('2d')
+    a?.putImageData(imageData,0,0)
+    console.log(newCtx.toDataURL())
   };
+
 
   useEffect(() => {
     setCustom(initial ?? [])
@@ -110,6 +111,13 @@ const Hippy = ({ }: Hippyprops) => {
       return [...filtered, { width: 0, y: 0, ...prevVal, src: val, order: Category[category], name: category }];
     });
   };
+
+  // const test = async() => {
+  //   resetCanvas()
+  //   if(!canvasEl.current) return
+  //   await drawCharacter(canvasEl.current,custom,true)
+  //   capturePopupOpen()
+  // }
 
   return <>
     {resetPopup}

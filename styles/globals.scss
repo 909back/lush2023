@@ -11,9 +11,9 @@
 
 html,
 body {
-  max-width: 100vw;
+  width: 100vw;
   max-height: fit-content;
-  min-width: $ipad-width;
+  // min-width: $ipad-width;
   min-height: 100vh;
   height: 100%;
   overflow: hidden;

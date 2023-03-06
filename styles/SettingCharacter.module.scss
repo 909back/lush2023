@@ -1,12 +1,15 @@
 @import './variables.scss';
 
 .setting-character {
+    width: calc(100% + 150px);
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 40px 0 75px;
+    margin: 0 -75px;
+    overflow: hidden;
 
     .select-character-section {
         width: 350px;

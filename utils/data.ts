@@ -18,7 +18,7 @@ export const order = [
 export const initial = {
   nely: [
     {order: 1, name: "body", src: "https://lush.s3.ap-northeast-2.amazonaws.com/nely/initial/body.svg", width: 300, y: 318.79},
-    {order: 2, name: "head", src: "https://lush.s3.ap-northeast-2.amazonaws.com/nely/initial/head.svg", width: 300, y: 112},
+    {order: 2, name: "head", src: "https://lush.s3.ap-northeast-2.amazonaws.com/nely/initial/head.svg", width: 300, y: 122},
     {order: 3, name: "face", src: "https://lush.s3.ap-northeast-2.amazonaws.com/nely/initial/face.svg", width: 150, y: 251.04},
   ],
   hippy: [

@@ -77,7 +77,7 @@ const Hippy = ({}: Hippyprops) => {
 
   useEffect(() => {
     if (!list) return;
-    setItem(list?.reduce<DataType<string>[]>((p, v) => (v.noValue ? [...p, {name: v.src, value: ""}] : [...p, {name: v.name, value: v.src}]), []));
+    setItem(list?.reduce<DataType<string>[]>((p, v) => (v.noValue ? [...p, {name: v.name, value: ""}] : [...p, {name: v.src, value: v.src}]), []));
   }, [category, list]);
 
   useEffect(() => {
@@ -95,7 +95,7 @@ const Hippy = ({}: Hippyprops) => {
     resetCanvas();
     if (!val) {
       setCustom((prev) => {
-        const filtered = prev.filter((item) => item.name !== category);
+        const filtered = prev.filter((item) => !item.name.includes(category));
         return [...filtered];
       });
     }

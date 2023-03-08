@@ -6,11 +6,6 @@ import styles from '../../styles/Prologue.module.scss'
 
 const cx = classNames.bind(styles)
 
-const MessageBox = () => {
-    return <div className={cx('message-box')}>
-
-    </div>
-}
 
 interface IndexProps {
     children?: React.ReactNode

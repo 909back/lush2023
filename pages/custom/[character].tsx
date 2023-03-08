@@ -93,11 +93,14 @@ const Hippy = ({}: Hippyprops) => {
   const handleSelect = (val: string) => {
     if (!custom) return;
     resetCanvas();
+    console.log(val);
     if (!val) {
       setCustom((prev) => {
         const filtered = prev.filter((item) => item.name !== category);
+        console.log(filtered);
         return [...filtered];
       });
+      return;
     }
 
     let prevVal: any;

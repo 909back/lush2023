@@ -15,16 +15,15 @@ interface PrintProps {
 const Print = ({
 
 }: PrintProps) => {
-    const {data:name} = useUser()
+    const { data: name } = useUser()
     const image = useRecoilValue(userImage)
 
     const handleClick = () => {
-        const download = document.createElement('a')
-        download.href = image
-        download.download = `${name}.png`
-        download.click()
-
-        location.href ='alisionsocial://'
+        // const download = document.createElement('a')
+        // download.href = image
+        // download.download = `${name}.png`
+        // download.click()
+        location.href = 'alisionsocial://'
     }
     return (
         <PageLayout className={cx('print-page')}>
@@ -34,9 +33,10 @@ const Print = ({
                     <div className={cx("complete-image")}>
                         <Image src={image} alt='이미지' fill />
                     </div>
-                    <p className={cx('page-description')}>이제 이미지를 저장하고<br />내가 꾸민 크루원을 출력해봐요!</p>
+                    <p className={cx('page-description')}>이미지를 꾹 눌러 갤러리에 저장하고<br/>
+                        크루원을 출력해봐요!</p>
                 </div>
-                <Button onClick={handleClick}>이미지 저장하기</Button>
+                <Button onClick={handleClick}>출력하러가기</Button>
             </section>
         </PageLayout>
     )

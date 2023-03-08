@@ -1,0 +1,138 @@
+.prologue-section {
+    background: #000;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    & > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+        width: 100%;
+        height: 100%;
+    }
+
+    .step1 {
+        background: url('/image/prologue1.png');
+
+        &.visible {
+            animation: fadeIn 0.9s ease;
+            display: block;
+        }
+    }
+
+    .step2 {
+        background: url('/image/prologue2.png');
+        &.visible {
+            animation: fadeIn 0.9s ease;
+            display: block;
+        }
+    }
+
+    .step3 {
+        width: 100%;
+        height: 100%;
+        padding: 0 0 70px;
+        background: url('/image/prologue2.png');
+        &.visible {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+    }
+
+    .step4 {
+        background: url('/image/prologue2.png');
+        padding: 0 0 70px;
+        .message {
+            display: none;
+            opacity: 0;
+        }
+        &.visible {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            .message {
+                display: block;
+                opacity: 1;
+                transition: all 0.5s ease 0.5s;
+            }
+        }
+    }
+
+    .step5 {
+        background:url('/image/prologue.png');
+        position: relative;
+        .message {
+            display: none;
+            opacity: 0;
+            position: absolute;
+            top: 252px;
+            left: 0;
+            height: 287px;
+        }
+        &.visible {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            .message {
+                display: block;
+                opacity: 1;
+                transition: all 3s ease 3s;
+            }
+        }
+    }
+
+    .step6 {
+        background:url('/image/prologue.png');
+        padding: 0 0 70px;
+        &.visible {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            .message {
+                display: block;
+                opacity: 1;
+                transition: all 3s ease 3s;
+            }
+        }
+    }
+
+    .step7 {
+        background:url('/image/prologue.png');
+        padding: 0 0 70px;
+        &.visible {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            .message {
+                display: block;
+                opacity: 1;
+                transition: all 3s ease 3s;
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.message{
+    width: 714px;
+    height: 196px;
+    margin: 0 60px 0;
+    position: relative;
+    animation: fadeIn 0.9s ease;
+}

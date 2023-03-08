@@ -102,13 +102,12 @@ const Hippy = ({}: Hippyprops) => {
 
     let prevVal: any;
     if (category !== "acc" && category !== "item") {
-      let prevVal = custom.find((item) => item.name === category)!;
+      prevVal = custom.find((item) => item.name === category)!;
       if (!prevVal) prevVal = list?.find((item) => item.src === val)!;
     } else {
       prevVal = list?.find((item) => item.src === val);
     }
 
-    console.log(prevVal);
     setCustom((prev) => {
       const filtered = prev.filter((item) => item.name !== category);
       return [...filtered, {width: 0, y: 0, ...prevVal, src: val, order: Category[category], name: category}];

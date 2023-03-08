@@ -88,7 +88,7 @@ const Hippy = ({}: Hippyprops) => {
 
     canvasEl.current.width = width ?? 0;
     drawCharacter(canvasEl.current, ordered);
-  }, [custom]);
+  }, [custom, select]);
 
   const handleSelect = (val: string) => {
     if (!custom) return;
@@ -107,11 +107,11 @@ const Hippy = ({}: Hippyprops) => {
     } else {
       prevVal = list?.find((item) => item.src === val);
     }
-    setSelect(val);
     setCustom((prev) => {
       const filtered = prev.filter((item) => item.name !== category);
       return [...filtered, {width: 0, y: 0, ...prevVal, src: val, order: Category[category], name: category}];
     });
+    setSelect(val);
   };
 
   return (

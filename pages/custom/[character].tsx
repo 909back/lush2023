@@ -95,13 +95,18 @@ const Hippy = ({}: Hippyprops) => {
     resetCanvas();
     if (!val) {
       setCustom((prev) => {
-        const filtered = prev.filter((item) => !item.name.includes(category));
+        const filtered = prev.filter((item) => item.name !== category);
         return [...filtered];
       });
     }
 
-    let prevVal = custom.find((item) => item.name === category);
-    if (!prevVal || category === "acc" || category === "item") prevVal = list?.find((item) => item.src === val)!;
+    let prevVal: any;
+    if (category !== "acc" && category !== "item") {
+      let prevVal = custom.find((item) => item.name === category);
+      if (!prevVal) prevVal = list?.find((item) => item.src === val)!;
+    } else {
+      prevVal = list?.find((item) => item.src === val);
+    }
     setSelect(val);
     setCustom((prev) => {
       const filtered = prev.filter((item) => item.name !== category);

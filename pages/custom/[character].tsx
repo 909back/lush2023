@@ -77,7 +77,7 @@ const Hippy = ({}: Hippyprops) => {
 
   useEffect(() => {
     if (!list) return;
-    setItem(list?.reduce<DataType<string>[]>((p, v) => (v.noValue ? [...p, {name: v.src, value: ""}] : [...p, {name: v.src, value: v.src}]), []));
+    setItem(list?.reduce<DataType<string>[]>((p, v) => (v.noValue ? [...p, {name: v.src.replace(`/${category}/`,`/${category}/show/`), value: ""}] : [...p, {name: v.src.replace(`/${category}/`,`/${category}/show/`), value: v.src}]), []));
   }, [category, list]);
 
   useEffect(() => {

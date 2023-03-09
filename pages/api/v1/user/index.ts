@@ -2,11 +2,12 @@ import type {NextApiRequest, NextApiResponse} from "next";
 import mariadb from "@/lib/mariadb";
 import withCatch from "@/utils/withCatch";
 import jwt from "jsonwebtoken";
+import {addLog} from "@/utils/addLog";
 
 const post = async (req: NextApiRequest, res: NextApiResponse) => {
   const name = req.body.name.trim();
   const character = req.body.character.trim() as string;
-
+  await addLog(req);
   if (!name) throw {code: 400, message: "이름을 작성해주세요."};
   if (name.length > 6) throw {code: 400, message: "이름은 6자 이하로 작성해주세요."};
   if (!character) throw {code: 400, message: "캐릭터를 선택해주세요."};

@@ -52,7 +52,7 @@ const Hippy = ({}: Hippyprops) => {
   });
 
   const [select, setSelect] = useState<string>();
-  const drawCharacter = async (canvas: HTMLCanvasElement, data: typeof custom, all?: boolean) => {
+  const drawCharacter = async (canvas: HTMLCanvasElement, data: typeof custom) => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     const {width: x} = canvas.getBoundingClientRect();

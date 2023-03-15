@@ -21,7 +21,6 @@ const Hippy = ({}: Hippyprops) => {
   const {data: initial} = useInitalCustom(character);
   const [category, setCategory] = useState(tabList[0].value);
   const {data: list} = useCustomList(category, character);
-
   const [custom, setCustom] = useState(initial ?? []);
   const [item, setItem] = useState<DataType[]>([]);
   const [image, setImage] = useState<string>("");
@@ -40,7 +39,6 @@ const Hippy = ({}: Hippyprops) => {
     onPositive: () => {
       resetCanvas();
       setCustom(initial ?? []);
-      if (!canvasEl.current) return;
     },
     onNegative: () => {},
   });
@@ -52,6 +50,7 @@ const Hippy = ({}: Hippyprops) => {
   });
 
   const [select, setSelect] = useState<string>();
+
   const drawCharacter = async (canvas: HTMLCanvasElement, data: typeof custom) => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -63,6 +62,10 @@ const Hippy = ({}: Hippyprops) => {
     });
 
     const imageData = ctx.getImageData((x - 480) / 2, 20, 480, 600);
+    setPrintSizeImage(imageData);
+  };
+
+  const setPrintSizeImage = (imageData: ImageData) => {
     const newCanvas = document.createElement("canvas");
     newCanvas.width = 480;
     newCanvas.height = 600;
@@ -71,17 +74,22 @@ const Hippy = ({}: Hippyprops) => {
     setImage(newCanvas.toDataURL());
   };
 
-  useEffect(() => {
-    setCustom(initial ?? []);
-  }, [initial]);
+  useEffect(() => setCustom(initial ?? []), [initial]);
 
   useEffect(() => {
     if (!list) return;
-    setItem(list?.reduce<DataType<string>[]>((p, v) => (v.noValue ? [...p, {name: v.src.replace(`/${category}/`,`/${category}/show/`), value: ""}] : [...p, {name: v.src.replace(`/${category}/`,`/${category}/show/`), value: v.src}]), []));
+    setItem(
+      list?.reduce<DataType<string>[]>(
+        (p, v) =>
+          v.noValue
+            ? [...p, {name: v.src.replace(`/${category}/`, `/${category}/show/`), value: ""}]
+            : [...p, {name: v.src.replace(`/${category}/`, `/${category}/show/`), value: v.src}],
+        []
+      )
+    );
   }, [category, list]);
 
   useEffect(() => {
-    if (!custom) return;
     const ordered = custom.sort((a, b) => a.order - b.order);
     if (!canvasEl.current) return;
     const width = canvasEl.current.parentElement?.clientWidth || document.getElementById("__next")?.clientWidth;
@@ -91,7 +99,6 @@ const Hippy = ({}: Hippyprops) => {
   }, [custom]);
 
   const handleSelect = (val: string) => {
-    if (!custom) return;
     resetCanvas();
     if (!val) {
       setCustom((prev) => {

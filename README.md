@@ -10,3 +10,7 @@
 
 ### 🛠️ STACK
 <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=Sass&logoColor=white"/> <img src="https://img.shields.io/badge/SWR-000000?style=for-the-badge&logo=vercel&logoColor=white"/> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white"/>  <img src="https://img.shields.io/badge/Recoil-61DAFB?style=for-the-badge&logo=react&logoColor=white"/> <img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=Amazon%20Aws&logoColor=white"/> 
+
+
+https://github.com/user-attachments/assets/4f829044-bc6b-425d-8852-fc0eb5a01deb
+
